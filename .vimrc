@@ -58,6 +58,7 @@ set tabstop=4
 set shiftwidth=4
 set smartindent
 set whichwrap=b,s,[,],<,>
+set vb t_vb=
 
 "行番号の色
 autocmd ColorScheme * highlight LineNr ctermfg=3
@@ -101,3 +102,19 @@ endfunction
 
 "powerline
 set rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim
+
+"全角スペースハイライト
+highlight ZenkakuSpace cterm=reverse ctermfg=DarkMagenta guibg=DarkMagenta
+match ZenkakuSpace /　/
+
+"indent
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_start_level=2
+" 自動カラー無効
+let g:indent_guides_auto_colors=0
+" 奇数番目のインデントの色
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#444433 ctermbg=black
+" 偶数番目のインデントの色
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#333344 ctermbg=darkgray
+" ガイドの幅
+let g:indent_guides_guide_size = 1
